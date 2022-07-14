@@ -13,7 +13,7 @@ class ManagerTest {
 
 
     @Test
-    void canHireRightApplicant() {
+    void canHireApplicant() {
 
         assertEquals(true, manager.canHire(applicantAccept));
         assertEquals(false, manager.canHire(applicantReject));

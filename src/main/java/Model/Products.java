@@ -1,48 +1,69 @@
 package Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Products
 {
+
+    private String category;
+    private String name;
+
+    private int quantity;
     private double price;
-    private String productType;
-    private double productQuantity;
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+    //    public static List<Products> productsList;
+
+    //enums
     // products quantity and prices
-    public Products(double price, String productType, double productQuantity) {
+
+
+    public Products(String category, String name, int quantity, double price) {
+        this.category = category;
+        this.name = name;
+        this.quantity = quantity;
         this.price = price;
-        this.productType = productType;
-        this.productQuantity = productQuantity;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    @Override
+    public String toString() {
+        return "Products;" + "\n" +
+                "category: " + category + "\n" +
+                "name: " + name + "\n" +
+                "quantity: " + quantity + "\n" +
+                "price: " + price + "\n";
     }
-
-    public String getProductType() {
-        return productType;
-    }
-
-    public void setProductType(String productType) {
-        this.productType = productType;
-    }
-
-    public double getProductQuantity() {
-        return productQuantity;
-    }
-
-    public void setProductQuantity(double productQuantity) {
-        this.productQuantity = productQuantity;
-    }
-
-    public double getTotalPrice()
-    {
-        double totalPrice = getPrice() * getProductQuantity();
-        return totalPrice;
-    }
-
 }
+
+
+
+
+   // public double getTotalPrice()
+  //  {
+     //   double totalPrice = getPrice() * getProductQuantity();
+     //   return totalPrice;
+
+
+
 
 
 

@@ -2,31 +2,29 @@ package Model;
 
 import Interface.CashierRoles;
 
-public class Cashier extends Person implements CashierRoles {
-    public Cashier(String phoneNumber, String emailAddress) {
-        super("default", phoneNumber, "default");
+public class Cashier extends Person {
+    public static Cashier currCashier;  //only one copy, no matter how many instances of the object created, can only be accesed by the class name.
+
+    public Cashier(String name, String phoneNumber, String emailAddress) {
+        super(name, phoneNumber, emailAddress);
     }
 
-    // Cashier gets to sell products to customers, and deduct customers money from their balance
 
-    @Override
-    public String canSellAndCanIssueReceipt(Products product, Customer customers, Applicant applicants)
-    {
-        if (applicants.getAge()>18 && applicants.getAge() <=35){
+    public String canSellAndCanIssueReceipt(Customer customer) {
+        double totalPrice = 0;  // create an empty varaible to count the total price
 
-            if(customers.getBalance()> product.getPrice() ){
-                return "I " +applicants.getName() + " can sell and issue receipts";
-
-            }
-            else {
-                return "You do not have enough money in your wallet";
-            }
-
+        for (Products product : customer.getMyCustomerList()) { //loop through the customer cart to get the price of each product
+            totalPrice += product.getPrice() * product.getQuantity();
         }
-        else {
-            return "I am not a cashier";
+        if (customer.getBalance() >= totalPrice) {
+            return "Your total price is " + totalPrice;
+        } else {
+            return "insufficient funds";
         }
     }
 
 }
+// }
+
+
 

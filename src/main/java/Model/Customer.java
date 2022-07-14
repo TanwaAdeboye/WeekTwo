@@ -1,9 +1,19 @@
 package Model;
 
-import Interface.CustomerRole;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Customer extends  Person implements CustomerRole {
+public class Customer extends  Person {
     private double balance;
+    private List<Products> myCustomerList = new ArrayList<>();
+
+    public List<Products> getMyCustomerList() {
+        return myCustomerList;
+    }
+
+    public void setMyCustomerList(List<Products> myCustomerList) {
+        this.myCustomerList = myCustomerList;
+    }
 
     public Customer(String name, String phoneNumber, double balance) //constructors
     {
@@ -13,12 +23,11 @@ public class Customer extends  Person implements CustomerRole {
     }
 
     //Customer can make purchases
-    @Override
-    public String canPurchase() {
-        return "can make purchases";
-    }
-
     public double getBalance() {
         return balance;
     }
+
+
 }
+
+

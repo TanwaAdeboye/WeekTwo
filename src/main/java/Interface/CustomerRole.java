@@ -1,6 +1,6 @@
 package Interface;
-
+import Model.Products;
 public interface CustomerRole {
-    String canPurchase();
+    String canPurchase(Products product);
 
 }
