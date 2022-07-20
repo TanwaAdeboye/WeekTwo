@@ -1,6 +1,7 @@
 package Model;
 
-import Interface.CashierRoles;
+import java.util.Map;
+import java.util.PriorityQueue;
 
 public class Cashier extends Person {
     public static Cashier currCashier;  //only one copy, no matter how many instances of the object created, can only be accesed by the class name.
@@ -10,17 +11,20 @@ public class Cashier extends Person {
     }
 
 
-    public String canSellAndCanIssueReceipt(Customer customer) {
+    public String canSellAndCanIssueReceipt() {
         double totalPrice = 0;  // create an empty varaible to count the total price
+        String output = "";
 
-        for (Products product : customer.getMyCustomerList()) { //loop through the customer cart to get the price of each product
-            totalPrice += product.getPrice() * product.getQuantity();
+        for (Map.Entry<String, PriorityQueue<CashierDTO>> entry : MyStore.customerQueue.entrySet()) { //loop through the customer cart to get the price of each product
+           PriorityQueue<CashierDTO> working = entry.getValue();
+           while(working.iterator().hasNext()) {
+               output += working.peek().getName() + " bought " + working.peek().getQuantity() + " of  " +
+                       entry.getKey() + "\n";
+               working.poll() ;
+           }
         }
-        if (customer.getBalance() >= totalPrice) {
-            return "Your total price is " + totalPrice;
-        } else {
-            return "insufficient funds";
-        }
+            return  output;
+
     }
 
 }

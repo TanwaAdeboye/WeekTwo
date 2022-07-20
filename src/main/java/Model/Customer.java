@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Customer extends  Person {
     private double balance;
+
     private List<Products> myCustomerList = new ArrayList<>();
 
     public List<Products> getMyCustomerList() {

@@ -1,13 +1,11 @@
 package Model;
-import Interface.ManagerRole;
-
-public class Manager extends  Person implements ManagerRole {
+import Model.Applicant;
+public class Manager extends  Person{
 
     public Manager(String name, String phoneNumber, String emailAddress) {
         super(name, phoneNumber, "default");
     }
 
-    @Override
     public boolean canHire(Applicant applicants)
     //Manager gets to hire applicants that are above 18years
     {
@@ -19,11 +17,11 @@ public class Manager extends  Person implements ManagerRole {
 
                 Cashier.currCashier=cashierNew; //
 
-                System.out.println("I am " + getName() + ", the Manager, Congratulations" + Cashier.currCashier.getName() + "you are hired");
+                System.out.println("I am " + getName() + ", the Manager, Congratulations " + Cashier.currCashier.getName() + " you are hired");
                 return true;
 
             } else {
-                System.out.println("I am " + getName() + ", the Manager, Sorry," + Cashier.currCashier.getName() + "you can not be hired");
+                System.out.println("I am " + getName() + ", the Manager, Sorry, " + Cashier.currCashier.getName() + " you can not be hired");
                 return false;
             }
         }

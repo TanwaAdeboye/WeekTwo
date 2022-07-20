@@ -8,8 +8,8 @@ class ManagerTest {
 
 
     Manager manager = new Manager("Great", "0905678", "@gmail");
-    Applicant applicantAccept = new Applicant(20, "Mike");
-    Applicant applicantReject = new Applicant(15, "Gabriel");
+    Applicant applicantAccept = new Applicant(20, "BSc");
+    Applicant applicantReject = new Applicant(15, "JuniorWAEC");
 
 
     @Test

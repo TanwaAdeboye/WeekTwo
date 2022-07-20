@@ -10,13 +10,13 @@ class CashierTest {
 
     Customer customerNew = new Customer("Joel", "234456", 12345678);
 
-    Applicant applicantNew = new Applicant(19, "Zion");
+    Applicant applicantNew = new Applicant(19, "BSc");
 
 
     @Test
     void canSellAndCanIssueReceiptTest()
     {
-   //  assertEquals("I " + customerNew.getName() + " can sell and issue receipts", cashierOne.canSellAndCanIssueReceipt(productBought, customerNew, applicantNew));
+    // assertEquals("I " + cashierOne.getName() + " can sell and issue receipts", cashierOne.canSellAndCanIssueReceipt(customerNew));
 
     }
 }

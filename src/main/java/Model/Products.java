@@ -9,10 +9,10 @@ public class Products
     private String category;
     private String name;
 
-    private int quantity;
+    private long quantity;
     private double price;
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(long quantity) {
         this.quantity = quantity;
     }
     //    public static List<Products> productsList;
@@ -21,7 +21,7 @@ public class Products
     // products quantity and prices
 
 
-    public Products(String category, String name, int quantity, double price) {
+    public Products(String category, String name, long quantity, double price) {
         this.category = category;
         this.name = name;
         this.quantity = quantity;
@@ -36,7 +36,7 @@ public class Products
         return name;
     }
 
-    public int getQuantity() {
+    public long getQuantity() {
         return quantity;
     }
 
